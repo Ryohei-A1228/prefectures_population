@@ -4,6 +4,7 @@ import HighchartsReact from 'highcharts-react-official';
 
 function App() {
 
+  //State
   const [prefectures, setPrefectures] = React.useState([]);
   const [selectedPref, setSelectedPref] = React.useState(Array(47).fill(false));
   const [prefSeries, setPrefSeries] = React.useState([]);
@@ -21,14 +22,7 @@ function App() {
     setPrefectures(res.result);
   })}, []);
 
-  /** const handleChange = e => {
-    setSelectedPref({
-      ...selectedPref,
-      [e.target.id]: e.target.checked
-    })
-    console.log('selectedPrefs:', selectedPref)
-  } **/
-
+  //都道府県選択と人口データ取得
   const selection = (index) => {
     const selectedPref_copy = selectedPref.slice();
     selectedPref_copy[index] = !selectedPref_copy[index];
@@ -50,7 +44,7 @@ function App() {
             data: tmp
           };
           setSelectedPref(selectedPref_copy);
-          setPrefSeries(res_series);
+          setPrefSeries([...prefSeries, res_series]);
         });
     } else {
       const prefSeries_copy = prefSeries.slice();
