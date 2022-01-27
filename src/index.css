@@ -20,11 +20,33 @@ h1 {
   width: 100%;
 }
 
+h2 {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+}
+
 .prefCheck {
-  width: 50%;
   display: inline-block;
+  margin: 2px 2px;
 }
 
 .main {
-  margin: 0 20px;
+  margin: 0 auto;
+  width: 60%;
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 479px) {
+  .main {
+    width: 100%;
+    margin: 0;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  
 }

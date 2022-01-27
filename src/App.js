@@ -88,18 +88,21 @@ function App() {
 
   return (
     <div className='main'>
-      <form>
+      <form className='form'>
+        <h2>都道府県</h2>
         {obj.map((item, index) => {
           return (
-            <label htmlFor={`id_${index}`} key={`id_${index}`} className='prefCheck'>
-              <CheckBox
-                id={index}
-                value={item}
-                onChange={() => selection(item.prefCode - 1)}
-                checked={selectedPref[item.prefCode - 1]}
-              />
-              {item.prefName}
-            </label>
+            <div className='prefCheck'>
+              <label htmlFor={`id_${index}`} key={`id_${index}`} className='prefCheck'>
+                <CheckBox
+                  id={index}
+                  value={item}
+                  onChange={() => selection(item.prefCode - 1)}
+                  checked={selectedPref[item.prefCode - 1]}
+                />
+                {item.prefName}
+              </label>
+            </div>
           )
         })}
       </form>
