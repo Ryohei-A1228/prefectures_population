@@ -10,7 +10,7 @@ function App() {
   const [prefSeries, setPrefSeries] = React.useState([]);
 
   //データ取得
-  useEffect(()=>{fetch("https://opendata.resas-portal.go.jp/api/v1/prefectures"
+  useEffect(() => {fetch("https://opendata.resas-portal.go.jp/api/v1/prefectures"
   ,{
     headers: {
       'X-API-KEY': "PZ1Mxii5zb4Z3aUtq250ncgRAfnTxCoTeW5UXpZz"
@@ -69,7 +69,6 @@ function App() {
     )
   }
   
-  const obj = prefectures;
   const options = {
     title: {
       text: '総人口増減'
@@ -90,7 +89,7 @@ function App() {
     <div className='main'>
       <form className='form'>
         <h2>都道府県</h2>
-        {obj.map((item, index) => {
+        {prefectures.map((item, index) => {
           return (
             <div className='prefCheck'>
               <label htmlFor={`id_${index}`} key={`id_${index}`} className='prefCheck'>
