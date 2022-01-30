@@ -4,6 +4,8 @@ import HighchartsReact from 'highcharts-react-official';
 
 function App() {
 
+  const APIKEY = process.env.React_APP_OPENWEATHERMAP_API_KEY;
+
   //State
   const [prefectures, setPrefectures] = React.useState([]);
   const [selectedPref, setSelectedPref] = React.useState(Array(47).fill(false));
@@ -13,7 +15,7 @@ function App() {
   useEffect(() => {fetch("https://opendata.resas-portal.go.jp/api/v1/prefectures"
   ,{
     headers: {
-      'X-API-KEY': "PZ1Mxii5zb4Z3aUtq250ncgRAfnTxCoTeW5UXpZz"
+      'X-API-KEY': APIKEY
     }
   }
   )
@@ -30,14 +32,14 @@ function App() {
     if (!selectedPref[index]) {
       fetch(`https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=-&prefCode=${index+1}`,
         {
-          headers: { 'X-API-KEY': "PZ1Mxii5zb4Z3aUtq250ncgRAfnTxCoTeW5UXpZz" }
+          headers: { 'X-API-KEY': APIKEY }
         }
       )
         .then(response => response.json())
         .then(res => {
           let tmp = [];
-          Object.keys(res.result.data[1].data).forEach(i => {
-            tmp.push(res.result.data[1].data[i].value);
+          Object.keys(res.result.data[0].data).forEach(i => {
+            tmp.push(res.result.data[0].data[i].value);
           });
           const res_series = {
             name: prefectures[index].prefName,
