@@ -3,7 +3,19 @@
 		"browser": true,
 		"es2021": true
 	},
-	"extends": ["eslint:recommended", "prettier"],
+	"settings": {
+		"react": {
+				"version": "detect"
+		}
+	},
+	"extends": [
+		"eslint:recommended", 
+		"prettier","plugin:react/recommended",
+		"standard",
+		"plugin:react/jsx-runtime",
+		"plugin:testing-library/react",
+		"plugin:jest/all"
+  ],
 	"parserOptions": {
 		"ecmaVersion": 12,
 		"sourceType": "module",
