@@ -18,4 +18,14 @@ https://Ryohei-A1228.github.io/prefectures_population
 
 RESAS(地域経済分析システム)は、地域に関する官民の様々なデータを搭載し、誰もが分かりやすいように「見える化」したシステム。
 
+## 使用技術
+
+React 17.0.2
+
+ESlint 8.8.0
+
+Prettier 2.5.1
+
+Gh-pages 3.2.3
+
 
